@@ -4,6 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation'
 import { createStackNavigator } from 'react-navigation-stack'
 import { createBottomTabNavigator } from 'react-navigation-tabs'
+import { Icon } from 'react-native-elements'
 import { Provider } from 'react-redux'
 
 import store from './store'
@@ -32,9 +33,16 @@ class App extends Component {
             settings: SettingsScreen
           }, {
             navigationOptions: {
-              title: 'Review Jobs'
+              title: 'Review Jobs',
+              tabBarIcon: ({ tintColor }) => {
+                  return <Icon name='favorite' size={30} color={tintColor} />
+              }
             }
           })
+        }, {
+          tabBarOptions: {
+            labelStyle: { fontSize: 12 }
+          }
         })
       }, {
         defaultNavigationOptions: {
